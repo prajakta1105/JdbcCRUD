@@ -84,7 +84,7 @@ public class Student {
             int rowDeleted = pstmt.executeUpdate();
             System.out.println(rowDeleted+" record deleted successfully.");
 
-            con.close();
+
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
