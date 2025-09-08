@@ -57,16 +57,72 @@ public class Products {
 //            }
 
             //get All
-            String getAllQuery = "select * from products";
-            PreparedStatement pstmt=con.prepareStatement(getAllQuery);
-            ResultSet rs=pstmt.executeQuery();
+//            String getAllQuery = "select * from products";
+//            PreparedStatement pstmt=con.prepareStatement(getAllQuery);
+//            ResultSet rs=pstmt.executeQuery();
+//
+//            System.out.println("Products data: ");
+//            while (rs.next()){
+//                System.out.println("Product id: "+rs.getInt(1));
+//                System.out.println("Product name: "+rs.getString(2));
+//                System.out.println("Product price: "+rs.getInt(3));
+//                System.out.println("--------------------------------------------");
+//            }
+//
 
-            System.out.println("Products data: ");
+
+            //update
+//            String updateQuery = "update products set pname = ?, price=? where pid=? ";
+//            PreparedStatement pstmt=con.prepareStatement(updateQuery);
+//
+//            System.out.println("Enter product that want to update: ");
+//            int id = sc.nextInt();
+//            pstmt.setInt(3,id);
+//            sc.nextLine();
+//
+//            System.out.println("Enter updated product name : ");
+//            String updatedName = sc.nextLine();
+//            pstmt.setString(1,updatedName);
+//
+//            System.out.println("Enter updated product price : ");
+//            int updatedPrice = sc.nextInt();
+//            pstmt.setInt(2,updatedPrice);
+//
+//            int result=pstmt.executeUpdate();
+//            if(result > 0){
+//                System.out.println("Data updated successfully");
+//            }else {
+//                System.out.println("Data is not updated.");
+//            }
+
+            //delete
+//            String deleteQuery = "delete from products where pid = ?";
+//            PreparedStatement pstmt=con.prepareStatement(deleteQuery);
+//
+//            System.out.println("Enter prosuct id that want to delete: ");
+//            int id = sc.nextInt();
+//            pstmt.setInt(1,id);
+//
+//            int result=pstmt.executeUpdate();
+//            if(result > 0){
+//                System.out.println("Data deleted successfully");
+//            }else {
+//                System.out.println("Data is not deleted.");
+//            }
+
+            //get by id
+            String getByIdQuery = "select * from products where pid = ?";
+            PreparedStatement pstmt=con.prepareStatement(getByIdQuery);
+
+            System.out.println("Enter product id: ");
+            int id = sc.nextInt();
+            pstmt.setInt(1,id);
+
+            ResultSet rs=pstmt.executeQuery();
+            System.out.println("Product data of pid: "+id);
             while (rs.next()){
-                System.out.println("Product id: "+rs.getInt(1));
                 System.out.println("Product name: "+rs.getString(2));
                 System.out.println("Product price: "+rs.getInt(3));
-                System.out.println("--------------------------------------------");
             }
 
             con.close();
