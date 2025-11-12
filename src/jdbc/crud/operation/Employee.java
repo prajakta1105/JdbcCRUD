@@ -93,6 +93,23 @@ public class Employee {
 //            }
 
 
+            String updateQuery = "update employee set salary = ? where eid=? ";
+            PreparedStatement preparedStatement=con.prepareStatement(updateQuery);
+            System.out.println("Enter id: ");
+            int id = sc.nextInt();
+            preparedStatement.setInt(2,id);
+            sc.nextLine();
+
+            System.out.println("Enter updated salary: ");
+            int salary = sc.nextInt();
+            preparedStatement.setInt(1,salary);
+
+            int result=preparedStatement.executeUpdate();
+            if(result != 0){
+                System.out.println("Record updated successfully....");
+            }else {
+                System.out.println("Data is not updated");
+            }
 
             con.close();
             sc.close();
